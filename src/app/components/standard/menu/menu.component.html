@@ -5,106 +5,30 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       
-      <li class="treeview">
+      <li class="treeview" *ngFor="let rootItem of rootMenu" >
         <a href="#">
-          <i class="fa fa-share"></i> <span>Register</span>
+          <i [class]="[rootItem.classImage]"></i> <span>{{rootItem.label}}</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="treeview">
-            <a href="#"><i class="fa fa-circle-o"></i> Person
+          <li class="treeview" *ngFor="let itemMenu of rootItem.menuItems" >
+            <a href="#"><i [class]="[itemMenu.classImage]"></i> {{itemMenu.label}}
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Custumer</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Provider</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> User</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#"><i class="fa fa-circle-o"></i> Product
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Feature</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Group</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Subgroup</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Product</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#"><i class="fa fa-circle-o"></i> Transaction
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Purchase order</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Sale order</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Product check in</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Product check out</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Cash flow</a></li>
+                <li *ngFor="let item of itemMenu.menuItems" >
+                  <a routerLinkActive="active" [routerLink]='[item.actionRouter]'>
+                    <i [class]="[item.classImage]"></i> {{item.label}}
+                  </a>
+                </li>
             </ul>
           </li>
         </ul>
       </li>
-      
-      <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Report</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Person
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i> By type</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i> By birth</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i> By register</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Product
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i> By transaction</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i> By stock level</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> By group</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> By subgroup</a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Transaction
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Purchase order</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Sale order</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Product check in</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Product check out</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Cash flow</a></li>
-              </ul>
-            </li>
-            
-          </ul>
-        </li>
     </ul>
   </section>
   <!-- /.sidebar -->
