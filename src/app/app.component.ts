@@ -6,11 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: []
 })
 export class AppComponent {
-  title: string = 'MC - Host.Info'
-  version: string = '1.0.0.1'
-  content: string = 'Simple system to record info about servers hosts.'
-  copyRight: string = 'Ⓒ Copyright 2018.'
+
+  majorVersion: number = 1;
+  minorVersion: number = 0;
+  release: number = 1;
+  build: number = 10;
+
+  companyName: string = "Mundo Conecto";
+  appName: string = "Host.Base";
+  description: string = 'Simple system to record info about servers hosts.'
+  
+  copyRight: string = 'Ⓒ Copyright 2018'
   author: string = 'Willimar Augusto Rocha'
+
+  fileVersion(): string{
+    return `${this.majorVersion}.${this.minorVersion}.${this.release}.${this.build}`;
+  }
+
+  applicationTitle(): string{
+    return `${this.companyName} - ${this.appName}`
+  }
 
   constructor(){
 

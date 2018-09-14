@@ -15,26 +15,26 @@ export class MenuComponent implements OnInit {
       actionRouter: "register",
       menuItems: [
         {
-          classImage: "fa fa-user-o",
-          label: "Person",
-          actionRouter: "person",
+          classImage: "fa fa-users",
+          label: "People",
+          actionRouter: "people",
           menuItems:[
             {
               classImage: "fa fa-address-card",
-              label: "Custumer",
-              actionRouter: "custumer",
+              label: "Person type",
+              actionRouter: "person-type",
               menuItems:[]
             },
             {
-              classImage: "fa fa-truck",
-              label: "Provider",
-              actionRouter: "provider",
+              classImage: "fa fa-flag",
+              label: "Person gender",
+              actionRouter: "person-gender",
               menuItems:[]
             },
             {
               classImage: "fa fa-id-card-o",
-              label: "User",
-              actionRouter: "user",
+              label: "Person",
+              actionRouter: "person",
               menuItems:[]
             }
           ]

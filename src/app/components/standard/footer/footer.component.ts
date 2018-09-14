@@ -14,9 +14,9 @@ export class FooterComponent implements OnInit {
   title: string;
 
   constructor(private _appComponent : AppComponent) { 
-    this.version = this._appComponent.version
-    this.copyRight = this._appComponent.copyRight
-    this.title = this._appComponent.title
+    this.version = this._appComponent.fileVersion();
+    this.copyRight = this._appComponent.copyRight;
+    this.title = this._appComponent.applicationTitle();
   }
 
   ngOnInit() {
