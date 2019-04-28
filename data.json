@@ -1,0 +1,34 @@
+{
+    "person-type":[
+        {
+            "id":"5f9dd860-c215-40b3-99df-b91489bf4c1a",
+            "name":"Custumer",
+            "readOnly":"true"
+        },
+        {
+            "id":"4c31f8e1-6299-48ef-8485-e9f4e645f0ae",
+            "name":"Juridic custumer",
+            "readOnly":"true"            
+        },
+        {
+            "id":"fcfc3baa-a4b0-42d5-88f8-80b4b7713fc9",
+            "name":"System user",
+            "readOnly":"true"
+        },
+        {
+            "id":"47eb51b0-7065-40fe-b426-f192caad3f37",
+            "name":"Service provider",
+            "readOnly":"true"
+        },
+        {
+            "id":"2ae086a6-8bf0-4b65-a98b-b14116332024",
+            "name":"Product provider",
+            "readOnly":"true"
+        },
+        {
+            "id":"4cbd6ef8-ad1a-4d39-bc9a-3af0ab688ce3",
+            "name":"System bot",
+            "readOnly":"true"
+        }
+    ]
+}

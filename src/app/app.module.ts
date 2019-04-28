@@ -1,5 +1,6 @@
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,7 +13,15 @@ import { SettingsComponent } from './components/standard/settings/settings.compo
 import { MenuComponent } from './components/standard/menu/menu.component';
 import { AboutComponent } from './components/standard/about/about.component';
 import { HomeComponent } from './components/standard/home/home.component';
+import { PersonTypeComponent } from './components/pages/person-type/person-type.component';
+import { AgGridModule } from 'ag-grid-angular';
 
+import { HttpClientModule } from '@angular/common/http';
+import { GridControlComponent } from './components/controls/grid-control/grid-control.component';
+import { PersonComponent } from './components/pages/person/person.component';
+import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';
+import { InputComponent } from './components/controls/input/input.component';
+import { InputDateComponent } from './components/controls/input-date/input-date.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +31,23 @@ import { HomeComponent } from './components/standard/home/home.component';
     SettingsComponent,
     MenuComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    PersonTypeComponent,
+    GridControlComponent,
+    PersonComponent,
+    StandardFormComponent,
+    InputComponent,
+    InputDateComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES),
+    AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+<ag-grid-angular 
+    #agGrid
+    style="width: 95%;height: 80%;"
+    class="ag-theme-balham"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    rowSelection="single"
+    pagination = true
+    paginationAutoPageSize = true
+    >
+</ag-grid-angular>

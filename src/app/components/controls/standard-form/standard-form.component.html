@@ -1,0 +1,31 @@
+<section styles="border=1px">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#findItem" data-toggle="tab">Find Item</a></li>
+          <li><a href="#detailData" data-toggle="tab">Detail</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="findItem">
+              <mc-grid-control [columnDefs]="columnDef"></mc-grid-control>
+          </div>
+          <div class="tab-pane" id="detailData">
+              <!-- <form role="form" [formGroup]="formGroupRules">  
+                  <div class="box box-warning">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Teste</h3>
+                      </div>
+                      <div class="box-body">
+                          <mc-input 
+                            [caption]="'Caption value'"
+                            [name]="fieldName"
+                            [required]="false">
+                            <input type="text" class="form-control" placeholder="Enter your data here..." formControlName="fieldName" autocomplete="off">  
+                          </mc-input>
+                      </div>
+                  </div>
+                </form> -->
+                <ng-content></ng-content>
+          </div>
+        </div>
+      </div>  
+</section>
