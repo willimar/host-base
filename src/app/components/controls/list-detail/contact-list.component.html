@@ -1,0 +1,55 @@
+<div class="row">
+    <form role="form" [formGroup]="formGroupRules">
+        <div class="col-md-4">
+            <mc-input
+                [caption]="'Contact type'"
+                [name]="contactType"
+                [required]="true">
+                <select class="form-control" formControlName="contactType">
+                    <option value="" selected>(Select)</option>
+                    <option value="3">Blog</option>
+                    <option value="1">Celphone</option>
+                    <option value="2">E-mail</option>
+                    <option value="0">Phone</option>
+                    <option value="4">Website</option>
+                </select>
+            </mc-input>
+        </div>
+        <div class="col-md-6">
+        <mc-input 
+            [caption]="'Contact value'"
+            [name]="value"
+            [required]="true"
+            [errorMessage]="'Value is required.'">
+            <input type="text" class="form-control" placeholder="Input the value..." formControlName="value" autocomplete="off">  
+            </mc-input>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-app">
+                <i class="fa  fa-plus"></i> Add
+            </a>
+        </div>
+    </form>
+</div>
+<div class="col-md-4" *ngFor="let item of paramList">
+    <div class="box box-primary" >
+        <div class="box-header ">
+            <div class="box-tools pull-right">
+                <label class="label label-primary"><b>Type: </b>{{item.name}}</label>
+            </div>
+            
+        </div>
+
+        <div class="box-body">
+            <label class="progress-description" *ngIf="item.paramType == 1" ><b>Value: </b>{{item.value | number: item.paramMask}}</label>
+            <label class="progress-description" *ngIf="item.paramType == 3" ><b>Value: </b>{{item.value}}</label>
+            <label class="progress-description" *ngIf="item.paramType == 4" ><b>Value: </b>{{item.value | currency: item.paramMask: true}}</label>
+        </div>
+
+        <div class="box-footer">
+            <label class="label label-primary">
+                <button type="button" class="btn btn-box-tool"><i class="fa fa-trash-o"></i></button>
+            </label>
+        </div>
+    </div>
+</div>

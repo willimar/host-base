@@ -22,6 +22,7 @@ import { PersonComponent } from './components/pages/person/person.component';
 import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';
 import { InputComponent } from './components/controls/input/input.component';
 import { InputDateComponent } from './components/controls/input-date/input-date.component';
+import { ContactListComponent } from './components/controls/list-detail/contact-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InputDateComponent } from './components/controls/input-date/input-date.
     PersonComponent,
     StandardFormComponent,
     InputComponent,
-    InputDateComponent
+    InputDateComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
