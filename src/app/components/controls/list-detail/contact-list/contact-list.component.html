@@ -1,0 +1,44 @@
+<div class="row">
+    <form role="form" [formGroup]="formGroupRules">
+        <div class="col-md-4">
+            <mc-input
+                [caption]="'Contact type'"
+                [name]="contactType"
+                [required]="true">
+                <select class="form-control" formControlName="contactType">
+                    <option [value]=null selected>(Select)</option>
+                    <option [value]=3>Blog</option>
+                    <option [value]=1>Celphone</option>
+                    <option [value]=2>E-mail</option>
+                    <option [value]=0>Phone</option>
+                    <option [value]=4>Website</option>
+                </select>
+            </mc-input>
+        </div>
+        <div class="col-md-6">
+            <mc-input 
+                [caption]="'Contact value'"
+                [name]="value"
+                [required]="true"
+                [errorMessage]="'Value is required.'">
+                <input type="text" class="form-control" placeholder="Input the value..." formControlName="value" autocomplete="off">  
+            </mc-input>
+        </div>
+        <input type="hidden" formControlName="paramType" [ngModel]="3">  
+        <input type="hidden" formControlName="paramMask" [ngModel]="">  
+        <div class="col-md-2">
+            <mc-button 
+                [faClass]="'fa-plus'" 
+                [caption]="'Add'" (click)="addContactItem(formGroupRules.value); formGroupRules.reset(resetedItem());"
+                [enable]="formGroupRules.valid">
+            </mc-button>
+        </div>
+    </form>
+</div>
+<div class="col-md-4" *ngFor="let item of personService.contactList">
+    <mc-contact-item
+        [item]="item"
+        [personService]="personService">
+
+    </mc-contact-item>    
+</div>

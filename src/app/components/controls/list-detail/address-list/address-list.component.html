@@ -1,0 +1,43 @@
+<div class="row">
+    <form role="form" [formGroup]="formGroupRules">
+      <div class="col-md-4">
+        <mc-input 
+            [caption]="'Postal Code'"
+            [name]="postalCode"
+            [required]="true"
+            [errorMessage]="'Postal code is required.'">
+          <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off">  
+        </mc-input>
+      </div>
+      <div class="col-md-8">
+        <mc-input 
+            [caption]="'Country'"
+            [name]="country"
+            [required]="true"
+            [errorMessage]="'Country.'">
+          <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off">  
+        </mc-input>
+        <mc-input 
+            [caption]="'State'"
+            [name]="state"
+            [required]="true"
+            [errorMessage]="'State.'">
+          <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off">  
+        </mc-input>
+        <mc-input 
+            [caption]="'City'"
+            [name]="city"
+            [required]="true"
+            [errorMessage]="'City.'">
+          <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off">  
+        </mc-input>
+      </div>
+    </form>
+</div>
+<div class="col-md-4" *ngFor="let item of personService.contactList">
+    <mc-contact-item
+        [item]="item"
+        [personService]="personService">
+
+    </mc-contact-item>    
+</div>

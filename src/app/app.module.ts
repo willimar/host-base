@@ -1,3 +1,4 @@
+import { PersonService } from './Services/registers-services/PersonService';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -22,7 +23,11 @@ import { PersonComponent } from './components/pages/person/person.component';
 import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';
 import { InputComponent } from './components/controls/input/input.component';
 import { InputDateComponent } from './components/controls/input-date/input-date.component';
-import { ContactListComponent } from './components/controls/list-detail/contact-list.component';
+import { ContactListComponent } from './components/controls/list-detail/contact-list/contact-list.component';
+import { BoxComponent } from './components/controls/box/box.component';
+import { ButtonComponent } from './components/controls/button/button.component';
+import { ContactItemComponent } from './components/controls/list-detail/contact-list/contact-item/contact-item.component';
+import { AddressListComponent } from './components/controls/list-detail/address-list/address-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { ContactListComponent } from './components/controls/list-detail/contact-
     StandardFormComponent,
     InputComponent,
     InputDateComponent,
-    ContactListComponent
+    ContactListComponent,
+    BoxComponent,
+    ButtonComponent,
+    ContactItemComponent,
+    AddressListComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,7 @@ import { ContactListComponent } from './components/controls/list-detail/contact-
     RouterModule.forRoot(ROUTES),
     AgGridModule.withComponents([])
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

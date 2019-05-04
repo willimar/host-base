@@ -1,0 +1,21 @@
+    <div class="box box-primary">
+        <div class="box-header with-border">        
+            <div class="box-tools pull-right">
+                <label class="label label-primary"><b>Type: </b>{{getContactName(item.contactType)}}</label>
+            </div>  
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="box-body">
+                    <label class="progress-description" *ngIf="item.paramType == 1" ><b>Value: </b>{{item.value | number: item.paramMask}}</label>
+                    <label class="progress-description" *ngIf="item.paramType == 3" ><b>Value: </b>{{item.value}}</label>
+                    <label class="progress-description" *ngIf="item.paramType == 4" ><b>Value: </b>{{item.value | currency: item.paramMask: true}}</label>
+                </div>         
+            </div>
+        </div>
+        <div class="box-footer">
+            <label class="label label-primary">
+                <button type="button" class="btn btn-box-tool" (click)="emitRemoveClick(item)"><i class="fa fa-trash-o"></i></button>
+            </label>
+        </div>
+    </div>
