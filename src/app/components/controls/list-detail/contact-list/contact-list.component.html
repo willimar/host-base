@@ -1,6 +1,7 @@
 <div class="row">
-    <form role="form" [formGroup]="formGroupRules">
-        <div class="col-md-4">
+    <form role="form" [formGroup]="formGroupRules" novalidate>
+        <input id="id" name="id" type="hidden" value="xm234jq">
+        <div class="col-md-2">
             <mc-input
                 [caption]="'Contact type'"
                 [name]="contactType"
@@ -15,30 +16,31 @@
                 </select>
             </mc-input>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <mc-input 
                 [caption]="'Contact value'"
                 [name]="value"
                 [required]="true"
                 [errorMessage]="'Value is required.'">
+                <label *ngIf="formGroupRules.hasError('noMatch')" >&nbsp;-&nbsp;</label><label class="fa has-error" style="color:red;" *ngIf="formGroupRules.hasError('noMatch')" >[Invalid format]</label>
                 <input type="text" class="form-control" placeholder="Input the value..." formControlName="value" autocomplete="off">  
             </mc-input>
         </div>
-        <input type="hidden" formControlName="paramType" [ngModel]="3">  
-        <input type="hidden" formControlName="paramMask" [ngModel]="">  
-        <div class="col-md-2">
-            <mc-button 
-                [faClass]="'fa-plus'" 
-                [caption]="'Add'" (click)="addContactItem(formGroupRules.value); formGroupRules.reset(resetedItem());"
-                [enable]="formGroupRules.valid">
-            </mc-button>
+        <div class="col-md-6">
+                <mc-button 
+                    [faClass]="'fa-plus'" 
+                    [caption]="'Add'" (click)="addContactItem(formGroupRules.value)"
+                    [enable]="formGroupRules.valid">
+                </mc-button>
         </div>
     </form>
 </div>
-<div class="col-md-4" *ngFor="let item of personService.contactList">
-    <mc-contact-item
-        [item]="item"
-        [personService]="personService">
+<div class="row">
+    <div class="col-md-4" *ngFor="let item of personService.getList(personService.person.personalContact, Status.active)">
+        <mc-contact-item
+            [item]="item"
+            [personService]="personService">
 
-    </mc-contact-item>    
+        </mc-contact-item>    
+    </div>
 </div>

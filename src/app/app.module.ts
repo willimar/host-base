@@ -28,6 +28,8 @@ import { BoxComponent } from './components/controls/box/box.component';
 import { ButtonComponent } from './components/controls/button/button.component';
 import { ContactItemComponent } from './components/controls/list-detail/contact-list/contact-item/contact-item.component';
 import { AddressListComponent } from './components/controls/list-detail/address-list/address-list.component';
+import { Person } from './Models/Register/Person/Person';
+import { AddressItemComponent } from './components/controls/list-detail/address-list/address-item/address-item.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { AddressListComponent } from './components/controls/list-detail/address-
     BoxComponent,
     ButtonComponent,
     ContactItemComponent,
-    AddressListComponent
+    AddressListComponent,
+    AddressItemComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,7 @@ import { AddressListComponent } from './components/controls/list-detail/address-
     RouterModule.forRoot(ROUTES),
     AgGridModule.withComponents([])
   ],
-  providers: [FormBuilder, PersonService],
+  providers: [FormBuilder, PersonService, Person],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

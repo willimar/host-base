@@ -1,7 +1,7 @@
-import { ContactType } from '../../../../../Models/controls/grid-models/ParamRowValue';
+import { ContactType } from './../../../../../Models/Register/Person/PersonalContact';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IParamRowValue } from 'src/app/Models/controls/grid-models/ParamRowValue';
 import { PersonService } from 'src/app/Services/registers-services/PersonService';
+import { PersonalContact } from 'src/app/Models/Register/Person/PersonalContact';
 
 @Component({
   selector: 'mc-contact-item',
@@ -10,17 +10,15 @@ import { PersonService } from 'src/app/Services/registers-services/PersonService
 })
 export class ContactItemComponent implements OnInit {
 
-  @Input() item: IParamRowValue; 
+  @Input() item: PersonalContact; 
   @Input() personService: PersonService;
-
-  @Output() removeContact = new EventEmitter<IParamRowValue>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  emitRemoveClick(value: IParamRowValue){
+  emitRemoveClick(value: PersonalContact){
     console.log("Click event was executed.")
     //this.removeContact.emit(value);
     this.personService.removeContactItem(value);

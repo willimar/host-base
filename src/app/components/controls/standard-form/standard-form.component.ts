@@ -1,5 +1,6 @@
 import { IColumnDef } from './../../../Models/controls/grid-models/ColumnDefModel';
 import { Component, OnInit, Input } from '@angular/core';
+import { Status } from 'src/app/Models/Register/ModelBase';
 
 @Component({
   selector: 'mc-standard-form',

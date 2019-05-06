@@ -7,9 +7,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="box-body">
-                    <label class="progress-description" *ngIf="item.paramType == 1" ><b>Value: </b>{{item.value | number: item.paramMask}}</label>
-                    <label class="progress-description" *ngIf="item.paramType == 3" ><b>Value: </b>{{item.value}}</label>
-                    <label class="progress-description" *ngIf="item.paramType == 4" ><b>Value: </b>{{item.value | currency: item.paramMask: true}}</label>
+                    <label class="progress-description"><b>Value: </b>{{item.value}}</label>
                 </div>         
             </div>
         </div>

@@ -1,29 +1,49 @@
+import { PersonalContact } from 'src/app/Models/Register/Person/PersonalContact';
+import { BaseService } from './../ServiceBase';
+import { Address } from './../../Models/Register/Person/Address';
+import { Person } from './../../Models/Register/Person/Person';
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
-import { IParamRowValue } from "src/app/Models/controls/grid-models/ParamRowValue";
+import { Status } from 'src/app/Models/Register/ModelBase';
 
 @Injectable()
-export class PersonService {
+export class PersonService extends BaseService { 
 
-    contactList: IParamRowValue[] = []; 
-
-    constructor(private _http: Http) {
+    constructor(private _http: Http, public person: Person) {
+        super();
     }
 
-    addContactItem(contact: IParamRowValue): void{
-        this.contactList.push(contact);
+    addContactItem(contact: PersonalContact): void{
+        console.log(contact);
+        this.generateDefaultValues(contact);
+        console.log(contact);
+        this.person.personalContact.push(contact);
+    }    
+
+    removeContactItem(contact: PersonalContact): void{
+        var idx: number = this.getCollectionIndex(this.person.personalContact, contact.id);
+
+        if (idx >= 0){
+            this.person.personalContact[idx].status = Status.deleted;
+        }
+        else{
+            console.log("Contact not found.");
+        }
     }
 
-    removeContactItem(contact: IParamRowValue): void{
-        var idx: number = -1;
+    addAddressItem(address: Address){
+        this.generateDefaultValues(address);
+        this.person.address.push(address);
+    }
 
-        this.contactList.forEach(item => {
-            idx++;
-            if(item.contactType == contact.contactType && 
-                item.paramType == contact.paramType && 
-                item.value == contact.value){
-                    this.contactList.splice(idx, 1);
-            }
-        });
+    removeAddressItem(address: Address){
+        var idx: number = this.getCollectionIndex(this.person.address, address.id);
+
+        if (idx >= 0){
+            this.person.address[idx].status = Status.deleted;
+        }
+        else{
+            console.log("Address not found.");
+        }
     }
 }

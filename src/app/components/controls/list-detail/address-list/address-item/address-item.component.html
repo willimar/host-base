@@ -1,0 +1,24 @@
+<div class="box box-primary">
+  <div class="box-header with-border">        
+      <div class="box-tools pull-right">
+          <label class="label label-primary"><b>Postal code:&nbsp;</b>{{item.postalCode}}</label>
+      </div>  
+  </div>
+  <div class="box-body">
+      <div class="row">
+            <b>Address:&nbsp;</b>{{item.publicPlace}}, {{item.number}}     
+        </div>
+        <div class="row">
+              <b>District:&nbsp;</b>{{item.district}} ({{item.complement}})       
+          </div>
+        <div class="row">
+              <b>City:&nbsp;</b>{{item.city}}
+              <b>&nbsp;State:&nbsp;</b>Completar  
+        </div>
+  </div>
+  <div class="box-footer">
+      <label class="label label-primary">
+          <button type="button" class="btn btn-box-tool" (click)="emitRemoveClick(item)"><i class="fa fa-trash-o"></i></button>
+      </label>
+  </div>
+</div>
