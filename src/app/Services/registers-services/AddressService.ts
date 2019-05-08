@@ -8,6 +8,13 @@ import { Strings } from './../StringServices';
 import { Address } from './../../Models/Register/Person/Address';
 import { BaseService } from './../ServiceBase';
 
+export class Cep{
+    Value: string;
+
+    constructor(value: string){
+        this.Value = value;
+    }
+}
 
 @Injectable()
 export class AddressService extends BaseService{
@@ -29,8 +36,8 @@ export class AddressService extends BaseService{
         
         if(this.isBrazilianCode){
             const headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            var jsonForm = `{"value":"${cep}"}`;
+            headers.append('Content-Type', 'application/json; charset=utf-8');
+            var jsonForm = new Cep(cep);
             
             return this._http.post(this.url, 
                 jsonForm, 
