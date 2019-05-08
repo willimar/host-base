@@ -1,7 +1,9 @@
+import { Address } from './Models/Register/Person/Address';
+import { AddressService } from './Services/registers-services/AddressService';
 import { PersonService } from './Services/registers-services/PersonService';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -61,7 +63,7 @@ import { AddressItemComponent } from './components/controls/list-detail/address-
     RouterModule.forRoot(ROUTES),
     AgGridModule.withComponents([])
   ],
-  providers: [FormBuilder, PersonService, Person],
+  providers: [FormBuilder, PersonService, Person, AddressService, Address],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

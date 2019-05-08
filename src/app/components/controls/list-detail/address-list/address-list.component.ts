@@ -1,3 +1,4 @@
+import { AddressService } from './../../../../Services/registers-services/AddressService';
 import { Address } from './../../../../Models/Register/Person/Address';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterBase } from './../../../pages/register-base';
@@ -14,7 +15,7 @@ export class AddressListComponent extends RegisterBase implements OnInit {
 
   @Input() personService: PersonService;
 
-  constructor(formBuilder: FormBuilder) { 
+  constructor(formBuilder: FormBuilder, private addressService: AddressService) { 
     super();
     this.formBuilder = formBuilder;
   }
@@ -53,5 +54,13 @@ export class AddressListComponent extends RegisterBase implements OnInit {
 
   removeContactItem(item: Address): void{
     this.personService.removeAddressItem(item);
+  }
+
+  loadCep(cep: string){
+    this.addressService.loadAddress(cep).subscribe((address) => {
+      const publicPlace = this.formGroupRules.get('publicPlace');
+
+      publicPlace.setValue(address.publicPlace);
+    });
   }
 }
