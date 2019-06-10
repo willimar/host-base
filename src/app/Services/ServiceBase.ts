@@ -1,15 +1,15 @@
 import { Guid } from './guid';
-import { ModelBase, Status } from "../Models/Register/ModelBase";
+import { ModelBase, Status } from '../Models/Register/ModelBase';
 
-export class BaseService{
+export class BaseService {
 
-    protected getCollectionIndex(collection: ModelBase[], id: string): number{
-        var idx = -1;
-        var result = -1;
+    protected getCollectionIndex(collection: ModelBase[], id: string): number {
+        let idx = -1;
+        let result = -1;
 
         collection.forEach(item => {
             idx++;
-            if(item.id == id){
+            if(item.id === id) {
                 result = idx;
             }
         });
@@ -17,27 +17,31 @@ export class BaseService{
         return result;
     }
 
-    protected generateDefaultValues(value: ModelBase): void{
+    protected generateDefaultValues(value: ModelBase): void {
         value.lastChageDate = new Date();
 
-        if(!value.id){
+        if (!value.id) {
             value.id = Guid.newGuid();
         }
 
-        if(!value.registerDate){
+        if(!value.registerDate) {
              value.registerDate = new Date();
         }
 
-        if(!value.status){
+        if(!value.status) {
             value.status = Status.active;
         }
     }
 
-    public getList(collection: ModelBase[], status: Status): ModelBase[]{
-        var result: ModelBase[] = [];
+    public getList(collection: ModelBase[], status: Status): ModelBase[] {
+        const result: ModelBase[] = [];
+
+        if (collection === undefined) {
+          return result;
+        }
 
         collection.forEach(item => {
-            if(item.status == status){
+            if (item.status === status) {
                 result.push(item);
             }
         });

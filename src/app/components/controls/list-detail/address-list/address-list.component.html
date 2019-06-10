@@ -1,82 +1,82 @@
     <form role="form" [formGroup]="formGroupRules">
       <div class="row">
         <div class="col-md-2">
-          <mc-input 
+          <mc-input
               [caption]="'Postal Code'"
-              [name]="postalCode"
+              [name]="'postalCode'"
               [required]="true"
               [errorMessage]="'Postal code is required.'">
-            <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off" (blur)="loadCep(formGroupRules.value.postalCode)">  
+            <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode" autocomplete="off" (blur)="loadCep(formGroupRules.value.postalCode)">
           </mc-input>
         </div>
         <div class="col-md-3">
-          <mc-input 
+          <mc-input
               [caption]="'Country'"
-              [name]="country"
+              [name]="'country'"
               [required]="true"
               [errorMessage]="'Select a country.'">
-            <input type="text" class="form-control" placeholder="input your country here..." formControlName="country" autocomplete="off">  
+            <input type="text" class="form-control" placeholder="input your country here..." formControlName="country" autocomplete="off">
           </mc-input>
         </div>
         <div class="col-md-2">
-          <mc-input 
+          <mc-input
               [caption]="'State'"
-              [name]="state"
+              [name]="'state'"
               [required]="true"
               [errorMessage]="'Select a state.'">
-            <input type="text" class="form-control" placeholder="Input your state here..." formControlName="state" autocomplete="off">  
+            <input type="text" class="form-control" placeholder="Input your state here..." formControlName="state" autocomplete="off">
           </mc-input>
         </div>
         <div class="col-md-5">
-          <mc-input 
+          <mc-input
               [caption]="'City'"
-              [name]="city"
+              [name]="'city'"
               [required]="true"
               [errorMessage]="'Select your city here.'">
-            <input type="text" class="form-control" placeholder="Input your city here..." formControlName="city" autocomplete="off">  
+            <input type="text" class="form-control" placeholder="Input your city here..." formControlName="city" autocomplete="off">
           </mc-input>
         </div>
       </div>
       <div class="row">
           <div class="col-md-4">
-            <mc-input 
+            <mc-input
                 [caption]="'Address'"
-                [name]="publicPlace"
+                [name]="'fullStreeName'"
                 [required]="true"
                 [errorMessage]="'Input your address.'">
-              <input type="text" class="form-control" placeholder="Input your public place here..." formControlName="publicPlace" autocomplete="off">  
+              <input type="text" class="form-control" placeholder="Input your public place here..." formControlName="fullStreeName" autocomplete="off">
             </mc-input>
           </div>
           <div class="col-md-1">
-              <mc-input 
+              <mc-input
                   [caption]="'Number'"
-                  [name]="number"
+                  [name]="'number'"
                   [required]="true"
                   [errorMessage]="'Input residence number.'">
-                <input type="text" class="form-control" placeholder="Home's number..." formControlName="number" autocomplete="off">  
+                <input type="text" class="form-control" placeholder="Home's number..." formControlName="number" autocomplete="off">
               </mc-input>
           </div>
           <div class="col-md-3">
-              <mc-input 
+              <mc-input
                   [caption]="'District'"
-                  [name]="district"
+                  [name]="'district'"
                   [required]="true"
                   [errorMessage]="'Input your district.'">
-                <input type="text" class="form-control" placeholder="Input your public place here..." formControlName="district" autocomplete="off">  
+                <input type="text" class="form-control" placeholder="Input your public place here..." formControlName="district" autocomplete="off">
               </mc-input>
           </div>
           <div class="col-md-2">
-              <mc-input 
+              <mc-input
                   [caption]="'Complement'"
-                  [name]="complement"
+                  [name]="'complement'"
                   [required]="true"
                   [errorMessage]="'Input your address.'">
-                <input type="text" class="form-control" placeholder="Complement of the address..." formControlName="complement" autocomplete="off">  
+                <input type="text" class="form-control" placeholder="Complement of the address..." formControlName="complement" autocomplete="off">
               </mc-input>
           </div>
           <div class="col-md-2">
-              <mc-button 
-                  [faClass]="'fa-plus'" 
+              <mc-button
+                  [faClass]="'fa-plus'"
                   [caption]="'Add'" (click)="addAddressItem(formGroupRules.value)"
                   [enable]="formGroupRules.valid">
               </mc-button>
@@ -84,10 +84,10 @@
       </div>
     </form>
 
-<div class="col-md-6" *ngFor="let item of personService.getList(personService.person.address, Status.active)">
+<div class="col-md-6" *ngFor="let item of personService.getList(personService.person.addresses, Status.active)">
     <mc-address-item
         [item]="item"
         [personService]="personService">
 
-    </mc-address-item>    
+    </mc-address-item>
 </div>

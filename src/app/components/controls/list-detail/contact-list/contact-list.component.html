@@ -4,7 +4,7 @@
         <div class="col-md-2">
             <mc-input
                 [caption]="'Contact type'"
-                [name]="contactType"
+                [name]="'contactType'"
                 [required]="true">
                 <select class="form-control" formControlName="contactType">
                     <option [value]=null selected>(Select)</option>
@@ -17,18 +17,18 @@
             </mc-input>
         </div>
         <div class="col-md-4">
-            <mc-input 
+            <mc-input
                 [caption]="'Contact value'"
-                [name]="value"
+                [name]="'value'"
                 [required]="true"
                 [errorMessage]="'Value is required.'">
                 <label *ngIf="formGroupRules.hasError('noMatch')" >&nbsp;-&nbsp;</label><label class="fa has-error" style="color:red;" *ngIf="formGroupRules.hasError('noMatch')" >[Invalid format]</label>
-                <input type="text" class="form-control" placeholder="Input the value..." formControlName="value" autocomplete="off">  
+                <input type="text" class="form-control" placeholder="Input the value..." formControlName="value" autocomplete="off">
             </mc-input>
         </div>
         <div class="col-md-6">
-                <mc-button 
-                    [faClass]="'fa-plus'" 
+                <mc-button
+                    [faClass]="'fa-plus'"
                     [caption]="'Add'" (click)="addContactItem(formGroupRules.value)"
                     [enable]="formGroupRules.valid">
                 </mc-button>
@@ -36,11 +36,11 @@
     </form>
 </div>
 <div class="row">
-    <div class="col-md-4" *ngFor="let item of personService.getList(personService.person.personalContact, Status.active)">
+    <div class="col-md-4" *ngFor="let item of personService.getList(personService.person.personalContacts, Status.active)">
         <mc-contact-item
             [item]="item"
             [personService]="personService">
 
-        </mc-contact-item>    
+        </mc-contact-item>
     </div>
 </div>

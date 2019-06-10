@@ -15,14 +15,14 @@ export class AddressListComponent extends RegisterBase implements OnInit {
 
   @Input() personService: PersonService;
 
-  constructor(formBuilder: FormBuilder, private addressService: AddressService) { 
+  constructor(formBuilder: FormBuilder, private addressService: AddressService) {
     super();
     this.formBuilder = formBuilder;
   }
 
   ngOnInit() {
     this.formGroupRules = this.formBuilder.group({
-      publicPlace: this.formBuilder.control('', [Validators.required, Validators.minLength(7)]),
+      fullStreeName: this.formBuilder.control('', [Validators.required, Validators.minLength(7)]),
       number: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
       complement: this.formBuilder.control('', []),
       postalCode: this.formBuilder.control('', [Validators.required, Validators.pattern(AddressListComponent.postalCodeFormat)]),
@@ -33,34 +33,42 @@ export class AddressListComponent extends RegisterBase implements OnInit {
     }, {validator: AddressListComponent.equalTo});
   }
 
-  static equalTo():{[key:string]: boolean}{
+  // tslint:disable-next-line: member-ordering
+  static equalTo(): {[key: string]: boolean} {
     return undefined;
   }
-  
-  addAddressItem(item: Address): void{
-    console.log(item);
-    
-    if (this.formGroupRules.valid)
-    {
+
+  addAddressItem(item: Address): void {
+    if (this.formGroupRules.valid) {
       this.personService.addAddressItem(item);
 
       this.formGroupRules.reset();
-    }
-    else
-    {
-      console.log("You tried post a empty value");
+    } else {
+      console.log('You tried post a empty value');
     }
   }
 
-  removeContactItem(item: Address): void{
+  removeContactItem(item: Address): void {
     this.personService.removeAddressItem(item);
   }
 
-  loadCep(cep: string){
+  loadCep(cep: string) {
     this.addressService.loadAddress(cep).subscribe((address) => {
-      const publicPlace = this.formGroupRules.get('publicPlace');
+      const fullStreeName = this.formGroupRules.get('fullStreeName');
+      const number = this.formGroupRules.get('number');
+      const complement = this.formGroupRules.get('complement');
+      const district = this.formGroupRules.get('district');
+      const city = this.formGroupRules.get('city');
+      const country = this.formGroupRules.get('country');
+      const state = this.formGroupRules.get('state');
 
-      publicPlace.setValue(address.publicPlace);
+      fullStreeName.setValue(address.fullStreeName);
+      number.setValue(address.number);
+      complement.setValue(address.complement);
+      district.setValue(address.district);
+      city.setValue(address.city.name);
+      country.setValue(address.city.state.country.name);
+      state.setValue(address.city.state.name);
     });
   }
 }

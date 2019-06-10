@@ -20,7 +20,7 @@ export class Cep{
 export class AddressService extends BaseService{
 
     public isBrazilianCode: boolean = false;
-    public url: string = "http://localhost:51914/api/Cep";
+    public url: string = "http://localhost:5000/api/Cep?cep=";
 
     constructor(private _http: Http, public address: Address) {
         super();
@@ -37,13 +37,16 @@ export class AddressService extends BaseService{
         if(this.isBrazilianCode){
             const headers = new Headers();
             headers.append('Content-Type', 'application/json; charset=utf-8');
-            var jsonForm = new Cep(cep);
-            
-            return this._http.post(this.url, 
-                jsonForm, 
-                new RequestOptions({headers: headers, method: RequestMethod.Post}))
+            // var jsonForm = new Cep(cep);
+            return this._http.get(this.url + cep,
+                new RequestOptions({headers: headers, method: RequestMethod.Get}))
             .map(response => response.json())
             .map(address => address);
+            // return this._http.post(this.url, 
+            //     jsonForm, 
+            //     new RequestOptions({headers: headers, method: RequestMethod.Post}))
+            // .map(response => response.json())
+            // .map(address => address);
         }
     }
 }

@@ -17,4 +17,9 @@ export class AddressItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  emitRemoveClick(value: Address){
+    console.log("Click event was executed.")
+    this.personService.removeAddressItem(value);
+  }
+
 }

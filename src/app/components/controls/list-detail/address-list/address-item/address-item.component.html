@@ -6,10 +6,10 @@
   </div>
   <div class="box-body">
       <div class="row">
-            <b>Address:&nbsp;</b>{{item.publicPlace}}, {{item.number}}     
+            <b>Address:&nbsp;</b>{{item.fullStreeName}}, {{item.number}} <label *ngIf="item.complement" >({{item.complement}})</label>    
         </div>
         <div class="row">
-              <b>District:&nbsp;</b>{{item.district}} ({{item.complement}})       
+              <b>District:&nbsp;</b>{{item.district}}
           </div>
         <div class="row">
               <b>City:&nbsp;</b>{{item.city}}
