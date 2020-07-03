@@ -1,4 +1,4 @@
-export interface IColumnDef{
+export interface IColumnDef {
     headerName: string;
     field: string;
     checkboxSelection: boolean;

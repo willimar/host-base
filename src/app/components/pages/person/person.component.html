@@ -5,48 +5,9 @@
         <mc-box
           [boxTitle]="'Personal Info'"
           [useMinimize]="true">
-          <div class="row">
-            <div class="col-sm-4">
-                <mc-input
-                      [caption]="'Full name'"
-                      [name]="'name'"
-                      [required]="true"
-                      [errorMessage]="'Name is required with min 10 caracters.'">
-                      <input type="text" class="form-control" placeholder="Input your name..." formControlName="name" autocomplete="off">
-                </mc-input>
-            </div>
-            <div class="col-sm-3">
-                <mc-input-date
-                          [caption]="'Birth'"
-                          [name]="'birthDate'"
-                          [required]="true">
-                          <input type="date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDate" data-mask="">
-                </mc-input-date>
-            </div>
-            <div class="col-sm-2">
-                <mc-input
-                        [caption]="'Gender'"
-                        [name]="'gender'"
-                        [required]="true">
-                        <select class="form-control" formControlName="gender">
-                            <option value="" selected>(Select)</option>
-                            <option value="1">Female</option>
-                            <option value="0">Male</option>
-                        </select>
-                </mc-input>
-            </div>
-            <div class="col-sm-3">
-                <mc-input
-                          [caption]="'Nick name'"
-                          [name]="'nickName'"
-                          [required]="false"
-                          [errorMessage]="'Your nick name.'">
-                          <input type="text" class="form-control" placeholder="Your nick name..." formControlName="nickName" autocomplete="off">
-                </mc-input>
-            </div>
-          </div>
+          <mc-person-info [personService]="personService"></mc-person-info>
         </mc-box>
-        <mc-box
+        <!-- <mc-box
           [boxTitle]="'Personal Contacts'"
           [useMinimize]="true">
           <mc-contact-list [personService]="personService"></mc-contact-list>
@@ -55,7 +16,7 @@
           [boxTitle]="'Addresses'"
           [useMinimize]="true">
           <mc-address-list [personService]="personService"></mc-address-list>
-        </mc-box>
+        </mc-box> -->
         <div class="container">
             <div style="float: right; padding: 70px;">
                 <button class="btn btn-default" style="width: 120px;">Cancel</button>&nbsp;

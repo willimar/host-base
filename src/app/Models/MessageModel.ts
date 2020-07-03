@@ -6,4 +6,5 @@ export interface Message{
     from: UserInfo;
     to: UserInfo;
     sent: Date;
+    ico: string;
 }

@@ -9,14 +9,14 @@ import { PersonService } from 'src/app/Services/registers-services/PersonService
   templateUrl: './contact-list.component.html',
   styleUrls: []
 })
-export class ContactListComponent extends RegisterBase implements OnInit {  
+export class ContactListComponent extends RegisterBase implements OnInit {
 
   private paramTypeFormat = /^3$/;
   private contactTypeFormat = /^[0-4]$/;
-  
+
   @Input() personService: PersonService;
 
-  constructor(formBuilder: FormBuilder){
+  constructor(formBuilder: FormBuilder) {
     super();
     this.formBuilder = formBuilder;
   }
@@ -37,7 +37,7 @@ export class ContactListComponent extends RegisterBase implements OnInit {
     }
 
     console.log(`contactType: ${contactType.value}, contactValue: ${contactValue.value}`);
-    
+
     var regexCheck = function(regexExp: RegExp): {[key: string]: boolean}{
       var value: string = <string>contactValue.value;
         var match = value.match(regexExp);
@@ -92,5 +92,5 @@ export class ContactListComponent extends RegisterBase implements OnInit {
     console.log("Remove contact service was activated.");
     this.personService.removeContactItem(item);
   }
-  
+
 }

@@ -21,27 +21,25 @@ export class PersonComponent extends RegisterBase implements OnInit {
 
   ngOnInit() {
     this.formGroupRules = this.formBuilder.group({
-      id: this.formBuilder.control('', [Validators.required]),
-      name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
-      birthDate: this.formBuilder.control('', [Validators.required]),
-      gender: this.formBuilder.control('', [Validators.required]),
-      nickName: this.formBuilder.control('', [])
+      id: this.formBuilder.control('', [Validators.required])
     }, {validator: PersonComponent.equalTo});
   }
 
-  savePerson(form: Person){
-    this.personService.person.id = this.getId();
-    this.personService.person.name = form.name;
-    this.personService.person.birthDate = form.birthDate;
-    this.personService.person.gender = form.gender;
-    this.personService.person.nickName = form.nickName;
+  savePerson(form: Person) {
+    console.log(this.personService.person.personInfo);
+
+    if (form.id !== '') {
+      this.personService.person.id = form.id;
+    } else {
+      this.personService.person.id = this.getId();
+    }
 
     this.personService.saverPerson(this.personService.person)
-      .subscribe();
+       .subscribe();
   }
 
   getId(): string {
-    if(this.personService.person.id === '' || this.personService.person.id === undefined) {
+    if (this.personService.person.id === '' || this.personService.person.id === undefined) {
       this.personService.person.id = Guid.newGuid();
     }
     return this.personService.person.id;

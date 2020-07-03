@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { InputBase } from '../input-base/input-base.component';
 
 @Component({
-  selector: 'mc-input',
-  templateUrl: './input.component.html',
+  selector: 'mc-input-check',
+  templateUrl: './input-check.component.html',
   styleUrls: []
 })
-export class InputComponent extends InputBase implements OnInit {
+export class InputCheckComponent extends InputBase implements OnInit {
 
   ngOnInit() {
   }

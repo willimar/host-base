@@ -1,0 +1,81 @@
+
+<form role="form" [formGroup]="formGroupRules">
+  <div class="row">
+    <div class="col-sm-4">
+      <mc-input
+            [caption]="'Full name'"
+            [name]="'name'"
+            [required]="true"
+            [errorMessage]="'Name is required with min 10 caracters.'">
+            <input type="text" class="form-control" placeholder="Input your name..." formControlName="name" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+      </mc-input>
+    </div>
+    <div class="col-sm-3">
+        <mc-input-date
+                  [caption]="'Birth'"
+                  [name]="'birthDay'"
+                  [required]="true">
+                  <input type="date" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" formControlName="birthDay" data-mask="" (change)="savePerson(formGroupRules.value)">
+        </mc-input-date>
+    </div>
+    <div class="col-sm-3">
+        <mc-input
+                  [caption]="'Nick name'"
+                  [name]="'nickName'"
+                  [required]="false"
+                  [errorMessage]="'Your nick name.'">
+                  <input type="text" class="form-control" placeholder="Your nick name..." formControlName="nickName" autocomplete="off" (change)="savePerson(formGroupRules.value)">
+        </mc-input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+        <mc-input
+                [caption]="'Gender'"
+                [name]="'gender'"
+                [required]="true">
+                <select class="form-control" formControlName="gender" (change)="savePerson(formGroupRules.value)">
+                    <option value="" selected>(Select)</option>
+                    <option value="1">Female</option>
+                    <option value="0">Male</option>
+                </select>
+        </mc-input>
+    </div>
+    <div class="col-sm-2">
+        <mc-input
+                [caption]="'Marital status'"
+                [name]="'maritalStatus'"
+                [required]="true">
+                <select class="form-control" formControlName="maritalStatus" (change)="savePerson(formGroupRules.value)">
+                    <option value="" selected>(Select)</option>
+                    <option value="0">Married</option>
+                    <option value="1">Single</option>
+                    <option value="2">Widower</option>
+                </select>
+        </mc-input>
+    </div>
+    <div class="col-sm-2">
+        <mc-input-check
+                [caption]="'Special needs'"
+                [name]="'specialNeeds'"
+                [required]="false">
+                <input type="checkbox" formControlName="specialNeeds" (change)="savePerson(formGroupRules.value)">
+        </mc-input-check>
+    </div>
+  </div>
+
+
+  <select class="form-control">
+    <option selected="selected">orange</option>
+    <option>white</option>
+    <option>purple</option>
+  </select>
+  <script type="text/javascript">
+
+    $(".js-example-tags").select2({
+      tags: true
+    });
+
+  </script>
+
+</form>

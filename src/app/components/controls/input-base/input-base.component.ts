@@ -2,7 +2,7 @@ import { NgModel, FormControlName } from '@angular/forms';
 import { OnInit, Input, ContentChild, AfterContentInit } from '@angular/core';
 
 export class InputBase implements OnInit, AfterContentInit {
-  
+
   @Input() public caption: string;
   @Input() public errorMessage: string;
   @Input() public name: string;
@@ -22,15 +22,15 @@ export class InputBase implements OnInit, AfterContentInit {
     this.input = this.model || this.control;
 
     if(this.input === undefined){
-      throw new Error("Field ngModel or FormControlName not assigned.")
+      throw new Error('Field ngModel or FormControlName not assigned.')
     }
   }
 
-  hasSuccess(): boolean{
+  hasSuccess(): boolean {
     return this.input.valid && (this.input.dirty || this.input.touched) && this.required;
   }
 
-  hasError(): boolean{
+  hasError(): boolean {
     return !this.input.valid && (this.input.dirty || this.input.touched) && this.required;
   }
 

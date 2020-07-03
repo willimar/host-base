@@ -4,7 +4,6 @@ import { PersonService } from './Services/registers-services/PersonService';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { ROUTES } from './app.routers';
@@ -32,6 +31,8 @@ import { ContactItemComponent } from './components/controls/list-detail/contact-
 import { AddressListComponent } from './components/controls/list-detail/address-list/address-list.component';
 import { Person } from './Models/Register/Person/Person';
 import { AddressItemComponent } from './components/controls/list-detail/address-list/address-item/address-item.component';
+import { InputCheckComponent } from './components/controls/input-check/input-check.component';
+import { PersonInfoComponent } from './components/controls/list-detail/person-info/person-info.component';
 
 @NgModule({
   declarations: [
@@ -53,11 +54,12 @@ import { AddressItemComponent } from './components/controls/list-detail/address-
     ButtonComponent,
     ContactItemComponent,
     AddressListComponent,
-    AddressItemComponent
+    AddressItemComponent,
+    InputCheckComponent,
+    PersonInfoComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
