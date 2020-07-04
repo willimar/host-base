@@ -1,5 +1,5 @@
 export enum OperationType {
-    EqualTo = 1,
+    EqualTo = 'EqualTo',
     Contains = 2,
     StartsWith = 3,
     EndsWith = 4,

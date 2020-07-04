@@ -1,4 +1,4 @@
 export enum Statement {
-    And = 1,
+    And = 'And',
     Or = 2
 }

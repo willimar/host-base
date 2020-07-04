@@ -3,8 +3,8 @@ import { OperationType } from './../enums/operationType';
 import { Order } from './../enums/order';
 
 export class Check {
-    public operation: OperationType;
-    public connector: Statement;
-    public order: Order;
+    public operation = OperationType.EqualTo;
+    public connector = Statement.And;
+    public order = Order.none;
     public value: any;
 }

@@ -1,4 +1,4 @@
 export class QueryInfo {
-    public limit: number;
-    public page: number;
+    public limit = 0;
+    public page = 0;
 }

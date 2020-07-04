@@ -69,13 +69,13 @@ export class Body {
 
     private getValue(value: any): string {
       if (typeof(value) === 'string') {
-        return `\"${value}\"`;
+        return `\\"${value}\\"`;
       } else if (value instanceof Date) {
         const pipe = new DatePipe('en-US');
         const now: Date = value;
         const myFormattedDate = pipe.transform(now, 'short');
         // 'yyyy-MM-dd HH:mm:ss'
-        return `\"${myFormattedDate}\"`;
+        return `\\"${myFormattedDate}\\"`;
       } else {
         return `${value}`;
       }

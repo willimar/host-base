@@ -1,21 +1,35 @@
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Body } from './libs/body';
 
 export class GraphClient {
     public body: Body[] = [];
     public timeOut: number = 1000 * 30;
-    public Result: any;
+    public result: any;
+
+    public constructor(private _http: HttpClient) {
+    }
 
     public resolve(uri: string) {
-        // using (var navigator = new HttpClient())
-        // {
-        //     var bodyValue = string.Join(",", this.Body);
+        const bodyValue: string = this.body.join(',');
+        const body = `{"operationName":null,"variables":{},"query":"{${bodyValue}}"}`;
+        this.submitPerson(body, uri);
+    }
 
-        //     var body = $"{{\"operationName\":null,\"variables\":{{}},\"query\":\"{{{bodyValue}}}\"}}";
-        //     var content = new StringContent(body, Encoding.UTF8, "application/json");
-        //     var post = navigator.PostAsync(uri, content);
-        //     post.Wait(this.TimeOut);
-        //     this.Result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(post.Result.Content.ReadAsStringAsync().Result);
-        // }
+    private submitPerson(form: string, url: string) {
+      const header = new Headers();
+      header.append('Content-Type', 'application/json');
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+
+      console.log(form);
+      this.result = this._http.post(url,
+          form,
+          httpOptions)
+        .map(response => console.log(response));
     }
 
     public appendBody(name: string): Body {
