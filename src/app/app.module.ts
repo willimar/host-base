@@ -1,3 +1,4 @@
+import { NgSelect2Module } from 'ng-select2';
 import { Address } from './Models/Register/Person/Address';
 import { AddressService } from './Services/registers-services/AddressService';
 import { PersonService } from './Services/registers-services/PersonService';
@@ -62,6 +63,7 @@ import { PersonInfoComponent } from './components/controls/list-detail/person-in
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgSelect2Module,
     RouterModule.forRoot(ROUTES),
     AgGridModule.withComponents([])
   ],
