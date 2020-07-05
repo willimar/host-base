@@ -1,39 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mc-root',
   templateUrl: './app.component.html',
   styleUrls: []
 })
-export class AppComponent {
 
-  majorVersion: number = 1;
-  minorVersion: number = 0;
-  release: number = 1;
-  build: number = 10;
+export class AppComponent implements OnInit {
 
-  companyName: string = "Mundo Conecto";
-  appName: string = "Host.Base";
-  description: string = 'Simple system to record info about servers hosts.'
-  
-  copyRight: string = 'Ⓒ Copyright 2018'
-  author: string = 'Willimar Augusto Rocha'
+  public majorVersion = 1;
+  public minorVersion = 0;
+  public release = 1;
+  public build = 10;
+  public companyName = 'Mundo Conecto';
+  public appName = 'Host.Base';
+  public description = 'Simple system to record info about servers hosts.';
+  public copyRight = 'Ⓒ Copyright 2018';
+  public author = 'Willimar Augusto Rocha';
+  public cityApiUrl = 'https://cityapp-api.herokuapp.com/graphql';
 
-  fileVersion(): string{
+  fileVersion(): string {
     return `${this.majorVersion}.${this.minorVersion}.${this.release}.${this.build}`;
   }
 
-  applicationTitle(): string{
-    return `${this.companyName} - ${this.appName}`
+  applicationTitle(): string {
+    return `${this.companyName} - ${this.appName}`;
   }
 
-  constructor(){
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    
+    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    // Add 'implements OnInit' to the class.
   }
 }

@@ -1,9 +1,9 @@
 import { ModelBase } from './ModelBase';
 import { State } from './State';
 
-export class City extends ModelBase{
+export class City extends ModelBase {
     public name: string;
     public initials: string;
     public code: string;
-    public state: State;
+    public state: string;
 }

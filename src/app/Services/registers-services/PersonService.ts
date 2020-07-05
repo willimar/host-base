@@ -17,16 +17,10 @@ export class PersonService extends BaseService {
 
     constructor(private _http: HttpClient, public person: Person) {
         super();
-        const g = new GraphClient(this._http);
-        this.teste(g);
-
-        g.result.subscribe();
     }
 
     addContactItem(contact: PersonalContact): void {
-        console.log(contact);
         this.generateDefaultValues(contact);
-        console.log(contact);
         this.person.personalContacts.push(contact);
     }
 

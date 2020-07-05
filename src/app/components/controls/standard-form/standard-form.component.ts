@@ -10,11 +10,11 @@ import { Status } from 'src/app/Models/Register/ModelBase';
 export class StandardFormComponent implements OnInit {
   @Input() columns: IColumnDef[];
   @Input() groupName: String;
-  
+
   constructor() { }
-  
+
   ngOnInit() {
-    
+
   }
 
 }

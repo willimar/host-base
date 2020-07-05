@@ -29,6 +29,22 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-sm-3">
+        <mc-input
+                [caption]="'Birth state'"
+                [name]="'state'"
+                [required]="true"> <br/>
+                <ng-select2 [width] = "250" [class]="form-control" [data]="getStates()" [value]="getState()" [formControlName]="birthState" [placeholder]="'Select a state...'" (valueChanged)="setBirthState($event)"> </ng-select2>
+        </mc-input>
+    </div>
+    <div class="col-sm-3">
+        <mc-input
+                [caption]="'Birth city'"
+                [name]="'birthCity'"
+                [required]="true"> <br/>
+                <ng-select2 [width] = "250" [class]="form-control" [data]="getCities()" [value]="getCity()" [formControlName]="birthCity" [placeholder]="'Select a city...'" (valueChanged)="setBirthCity($event)"> </ng-select2>
+        </mc-input>
+    </div>
     <div class="col-sm-2">
         <mc-input
                 [caption]="'Gender'"
@@ -63,12 +79,4 @@
         </mc-input-check>
     </div>
   </div>
-
-  <!-- <ng-select2
-    [(ngModel)]="fruit"
-    [data]="fruitList"
-    [formControlName]="specialNeeds"
-    [placeholder]="'Please select a fruit...'">
-  </ng-select2> -->
-
 </form>

@@ -1,15 +1,15 @@
 export enum OperationType {
     EqualTo = 'EqualTo',
-    Contains = 2,
-    StartsWith = 3,
-    EndsWith = 4,
-    NotEqualTo = 5,
-    GreaterThan = 6,
-    GreaterThanOrEqualTo = 7,
-    LessThan = 8,
-    LessThanOrEqualTo = 9,
-    NotContains = 10,
-    NotStartsWith = 11,
-    NotEndsWith = 12,
-    IsNullOrWhiteSpace = 13
+    Contains = 'Contains',
+    StartsWith = 'StartsWith',
+    EndsWith = 'EndsWith',
+    NotEqualTo = 'NotEqualTo',
+    GreaterThan = 'GreaterThan',
+    GreaterThanOrEqualTo = 'GreaterThanOrEqualTo',
+    LessThan = 'LessThan',
+    LessThanOrEqualTo = 'LessThanOrEqualTo',
+    NotContains = 'NotContains',
+    NotStartsWith = 'NotStartsWith',
+    NotEndsWith = 'NotEndsWith',
+    IsNullOrWhiteSpace = 'IsNullOrWhiteSpace'
 }

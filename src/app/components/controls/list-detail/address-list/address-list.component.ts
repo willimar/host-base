@@ -67,8 +67,8 @@ export class AddressListComponent extends RegisterBase implements OnInit {
       complement.setValue(address.complement);
       district.setValue(address.district);
       city.setValue(address.city.name);
-      country.setValue(address.city.state.country.name);
-      state.setValue(address.city.state.name);
+      // country.setValue(address.city.state.country.name);
+      // state.setValue(address.city.state.name);
     });
   }
 }

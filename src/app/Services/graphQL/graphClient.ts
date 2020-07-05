@@ -25,11 +25,10 @@ export class GraphClient {
         })
       };
 
-      console.log(form);
       this.result = this._http.post(url,
           form,
           httpOptions)
-        .map(response => console.log(response));
+        .map(response => response);
     }
 
     public appendBody(name: string): Body {

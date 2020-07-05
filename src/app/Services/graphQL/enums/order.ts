@@ -1,5 +1,5 @@
 export enum Order {
-    asc = 1,
-    desc = 2,
-    none = 0
+    asc = 'asc',
+    desc = 'desc',
+    none = 'none'
 }

@@ -21,8 +21,8 @@ export class InputBase implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.input = this.model || this.control;
 
-    if(this.input === undefined){
-      throw new Error('Field ngModel or FormControlName not assigned.')
+    if (this.input === undefined) {
+      throw new Error('Field ngModel or FormControlName not assigned.');
     }
   }
 

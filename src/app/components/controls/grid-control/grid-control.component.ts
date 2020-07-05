@@ -24,7 +24,7 @@ export class GridControlComponent implements OnInit {
   @Input() rowData: any;
   @Input() url: string;
 
-  constructor(private _http: HttpClient) { 
+  constructor(private _http: HttpClient) {
     this.height = window.innerHeight;
     this.width = 100;
 
@@ -33,15 +33,15 @@ export class GridControlComponent implements OnInit {
   }
 
   private getStyle(): string{
-    var result: string  = 
+    const result =
       `width: ${this.width}${this.widthUnity}; height: ${this.height}${this.heightUnity};`;
-    
+
     console.log(result);
     return result;
   }
 
   ngOnInit() {
-    this.rowData = this._http.get("http://localhost:3000/person-type");  
+    // this.rowData = this._http.get("http://localhost:3000/person-type");
   }
 
 }

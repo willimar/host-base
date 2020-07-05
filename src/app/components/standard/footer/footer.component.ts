@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
   copyRight: string;
   title: string;
 
-  constructor(private _appComponent : AppComponent) { 
+  constructor(private _appComponent: AppComponent) {
     this.version = this._appComponent.fileVersion();
     this.copyRight = this._appComponent.copyRight;
     this.title = this._appComponent.applicationTitle();
