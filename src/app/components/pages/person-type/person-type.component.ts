@@ -11,24 +11,24 @@ import { IColumnDef } from './../../../Models/controls/grid-models/ColumnDefMode
 export class PersonTypeComponent implements OnInit {
   columnDef: IColumnDef[] = [
     {
-      headerName: "Id",
-      field: "id",
+      headerName: 'Id',
+      field: 'id',
       checkboxSelection: false,
       editable: false,
       width: 100,
       hide: true
      },
      {
-      headerName: "Name",
-      field: "name",
+      headerName: 'Name',
+      field: 'name',
       checkboxSelection: true,
       editable: false,
       width: 250,
       hide: false
      },
      {
-      headerName: "Readonly",
-      field: "readOnly",
+      headerName: 'Readonly',
+      field: 'readOnly',
       checkboxSelection: false,
       editable: false,
       width: 100,
@@ -36,12 +36,12 @@ export class PersonTypeComponent implements OnInit {
      }
    ];
 
-  constructor(private _appComponent: AppComponent) { 
-     
+  constructor(private _appComponent: AppComponent) {
+
   }
 
   ngOnInit() {
-    
+
   }
 
 }

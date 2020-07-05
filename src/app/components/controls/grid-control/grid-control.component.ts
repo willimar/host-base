@@ -28,8 +28,8 @@ export class GridControlComponent implements OnInit {
     this.height = window.innerHeight;
     this.width = 100;
 
-    this.widthUnity = "%";
-    this.heightUnity = "px";
+    this.widthUnity = '%';
+    this.heightUnity = 'px';
   }
 
   private getStyle(): string{
@@ -41,7 +41,7 @@ export class GridControlComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.rowData = this._http.get("http://localhost:3000/person-type");
+    // this.rowData = this._http.get('http://localhost:3000/person-type');
   }
 
 }

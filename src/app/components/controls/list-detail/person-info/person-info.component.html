@@ -33,16 +33,16 @@
         <mc-input
                 [caption]="'Birth state'"
                 [name]="'state'"
-                [required]="true"> <br/>
-                <ng-select2 [width] = "250" [class]="form-control" [data]="getStates()" [value]="getState()" [formControlName]="birthState" [placeholder]="'Select a state...'" (valueChanged)="setBirthState($event)"> </ng-select2>
+                [required]="false"> <br/>
+                <ng-select2 [width] = "250" [class]="form-control" [data]="getStates()" [value]="getState()" [formControlName]="'birthState'" [placeholder]="'Select a state...'" (valueChanged)="setBirthState($event)"> </ng-select2>
         </mc-input>
     </div>
     <div class="col-sm-3">
         <mc-input
                 [caption]="'Birth city'"
                 [name]="'birthCity'"
-                [required]="true"> <br/>
-                <ng-select2 [width] = "250" [class]="form-control" [data]="getCities()" [value]="getCity()" [formControlName]="birthCity" [placeholder]="'Select a city...'" (valueChanged)="setBirthCity($event)"> </ng-select2>
+                [required]="false"> <br/>
+                <ng-select2 [width] = "250" [class]="form-control" [data]="getCities()" [value]="getCity()" [formControlName]="'birthCity'" [placeholder]="'Select a city...'" (valueChanged)="setBirthCity($event)"> </ng-select2>
         </mc-input>
     </div>
     <div class="col-sm-2">
@@ -75,7 +75,7 @@
                 [caption]="'Special needs'"
                 [name]="'specialNeeds'"
                 [required]="false">
-                <input type="checkbox" formControlName="specialNeeds" (change)="savePerson(formGroupRules.value)">
+                <input type="checkbox" formControlName="specialNeeds" unchecked (change)="savePerson(formGroupRules.value)">
         </mc-input-check>
     </div>
   </div>

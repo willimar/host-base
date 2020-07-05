@@ -34,6 +34,7 @@ import { Person } from './Models/Register/Person/Person';
 import { AddressItemComponent } from './components/controls/list-detail/address-list/address-item/address-item.component';
 import { InputCheckComponent } from './components/controls/input-check/input-check.component';
 import { PersonInfoComponent } from './components/controls/list-detail/person-info/person-info.component';
+import { BoxErrorComponent } from './components/controls/box-error/box-error.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { PersonInfoComponent } from './components/controls/list-detail/person-in
     AddressListComponent,
     AddressItemComponent,
     InputCheckComponent,
-    PersonInfoComponent
+    PersonInfoComponent,
+    BoxErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -13,10 +13,10 @@ export class BoxComponent implements OnInit {
   @Input() boxClass: string;
   @Input() topLabel: string;
 
-  constructor() { 
-    this.boxTitle = "";
+  constructor() {
+    this.boxTitle = '';
     this.useMinimize = false;
-    this.boxClass = "box-default";
+    this.boxClass = 'box-default';
   }
 
   ngOnInit() {

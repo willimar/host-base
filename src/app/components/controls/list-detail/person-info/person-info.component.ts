@@ -33,16 +33,17 @@ export class PersonInfoComponent extends RegisterBase implements OnInit {
 
   ngOnInit() {
     this.formGroupRules = this.formBuilder.group({
-      id: this.formBuilder.control('', [Validators.required]),
       name: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       birthDay: this.formBuilder.control('', [Validators.required]),
-      birthState: this.formBuilder.control('', [Validators.required]),
-      birthCity: this.formBuilder.control('', [Validators.required]),
+      birthState: this.formBuilder.control('', []),
+      birthCity: this.formBuilder.control('', []),
       gender: this.formBuilder.control('', [Validators.required]),
       maritalStatus: this.formBuilder.control('', [Validators.required]),
       specialNeeds: this.formBuilder.control('', []),
       nickName: this.formBuilder.control('', [])
     }, {validator: PersonInfoComponent.equalTo});
+
+    this.personService.formGroups.push(this.formGroupRules);
   }
 
   savePerson(form: PersonInfo) {
@@ -50,7 +51,7 @@ export class PersonInfoComponent extends RegisterBase implements OnInit {
     this.personService.person.personInfo.birthDay = form.birthDay;
     this.personService.person.personInfo.gender = form.gender;
     this.personService.person.personInfo.nickName = form.nickName;
-    this.personService.person.personInfo.specialNeeds = form.specialNeeds;
+    this.personService.person.personInfo.specialNeeds = typeof(form.specialNeeds) !== 'boolean' ? false : form.specialNeeds;
     this.personService.person.personInfo.maritalStatus = form.maritalStatus;
   }
 
@@ -113,7 +114,7 @@ export class PersonInfoComponent extends RegisterBase implements OnInit {
     body.resultFields.push('id');
     body.resultFields.push('name');
 
-    body.appendArgument('uF').appendCheck(OperationType.EqualTo, Statement.And, state);
+    body.appendArgument('uf').appendCheck(OperationType.EqualTo, Statement.And, state);
     body.appendArgument('name').appendOrder(Order.asc);
 
     client.resolve(SettingsComponent.cityApiUrl);

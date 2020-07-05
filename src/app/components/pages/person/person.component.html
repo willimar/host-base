@@ -1,6 +1,7 @@
 
 <section styles="border=1px">
   <mc-standard-form [columns]="columnDef">
+      <mc-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></mc-box-error>
       <form role="form" [formGroup]="formGroupRules">
         <mc-box
           [boxTitle]="'Personal Info'"
@@ -19,7 +20,7 @@
         </mc-box> -->
         <div class="container">
             <div style="float: right; padding: 70px;">
-                <button class="btn btn-default" style="width: 120px;">Cancel</button>&nbsp;
+                <!-- <button class="btn btn-default" style="width: 120px;" (click)="clearPerson()">Cancel</button>&nbsp; -->
                 <button class="btn btn-primary" style="width: 120px;" (click)="savePerson(formGroupRules.value)">Save</button>
             </div>
         </div>

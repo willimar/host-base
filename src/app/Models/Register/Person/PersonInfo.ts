@@ -5,10 +5,10 @@ export class PersonInfo extends ModelBase {
   public name: string;
   public nickName: string;
   public birthDay: Date;
-  public birthCity: string;
-  public birthState: string;
+  public birthCity = '';
+  public birthState = '';
   public gender: string;
   public maritalStatus: string;
-  public specialNeeds: boolean;
+  public specialNeeds = false;
   public profession: string;
 }
