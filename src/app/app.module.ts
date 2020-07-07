@@ -1,3 +1,4 @@
+import { GraphClient } from './Services/graphQL/graphClient';
 import { NgSelect2Module } from 'ng-select2';
 import { Address } from './Models/Register/Person/Address';
 import { AddressService } from './Services/registers-services/AddressService';
@@ -19,7 +20,7 @@ import { HomeComponent } from './components/standard/home/home.component';
 import { PersonTypeComponent } from './components/pages/person-type/person-type.component';
 import { AgGridModule } from 'ag-grid-angular';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { GridControlComponent } from './components/controls/grid-control/grid-control.component';
 import { PersonComponent } from './components/pages/person/person.component';
 import { StandardFormComponent } from './components/controls/standard-form/standard-form.component';

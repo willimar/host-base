@@ -8,8 +8,9 @@ import { Status } from 'src/app/Models/Register/ModelBase';
   styleUrls: []
 })
 export class StandardFormComponent implements OnInit {
+
   @Input() columns: IColumnDef[];
-  @Input() groupName: String;
+  @Input() viewName: string;
 
   constructor() { }
 

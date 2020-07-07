@@ -100,7 +100,7 @@ export class PersonService extends BaseService {
       })
     };
 
-    return this._http.post(`${SettingsComponent.urlRegister}/api/Person/Person`,
+    return this._http.post(`${SettingsComponent.crudApiUrl}/api/Person/Person`,
         JSON.stringify(personInfo),
         httpOptions)
       .map(response => response);

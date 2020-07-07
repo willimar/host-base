@@ -31,17 +31,41 @@ export class PersonComponent extends RegisterBase implements OnInit {
      {
       headerName: 'Name',
       field: 'name',
-      checkboxSelection: true,
+      checkboxSelection: false,
       editable: false,
       width: 250,
       hide: false
      },
      {
-      headerName: 'Readonly',
-      field: 'readOnly',
+      headerName: 'Nick',
+      field: 'nickName',
       checkboxSelection: false,
       editable: false,
       width: 100,
+      hide: false
+     },
+     {
+      headerName: 'Profession',
+      field: 'profession',
+      checkboxSelection: false,
+      editable: false,
+      width: 100,
+      hide: false
+     },
+     {
+      headerName: 'Register',
+      field: 'registerDate',
+      checkboxSelection: false,
+      editable: false,
+      width: 200,
+      hide: false
+     },
+     {
+      headerName: 'Changed',
+      field: 'lastChangeDate',
+      checkboxSelection: false,
+      editable: false,
+      width: 200,
       hide: false
      }
    ];

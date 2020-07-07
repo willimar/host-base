@@ -1,6 +1,6 @@
 
 <section styles="border=1px">
-  <mc-standard-form [columns]="columnDef">
+  <mc-standard-form [columns]="columnDef" [viewName]="'person'">
       <mc-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></mc-box-error>
       <form role="form" [formGroup]="formGroupRules">
         <mc-box

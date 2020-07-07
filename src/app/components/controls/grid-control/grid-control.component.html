@@ -1,8 +1,9 @@
-<ag-grid-angular 
-    #agGrid
-    style="width: 95%;height: 80%;"
+
+<ag-grid-angular
+    #gird
+    id="agGrid"
     class="ag-theme-balham"
-    [rowData]="rowData | async"
+    [rowData]="rowData"
     [columnDefs]="columnDefs"
     [enableSorting]="true"
     [enableFilter]="true"
@@ -10,4 +11,5 @@
     pagination = true
     paginationAutoPageSize = true
     >
+
 </ag-grid-angular>
