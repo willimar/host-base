@@ -1,5 +1,5 @@
 import { IColumnDef } from './../../../Models/controls/grid-models/ColumnDefModel';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Status } from 'src/app/Models/Register/ModelBase';
 
 @Component({
@@ -12,10 +12,16 @@ export class StandardFormComponent implements OnInit {
   @Input() columns: IColumnDef[];
   @Input() viewName: string;
 
+  @Output() selectionChanged = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
 
+  }
+
+  onSelectionChanged(value: any) {
+    this.selectionChanged.emit(value);
   }
 
 }

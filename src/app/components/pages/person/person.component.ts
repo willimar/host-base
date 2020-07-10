@@ -33,7 +33,7 @@ export class PersonComponent extends RegisterBase implements OnInit {
       field: 'name',
       checkboxSelection: false,
       editable: false,
-      width: 250,
+      width: 200,
       hide: false
      },
      {
@@ -49,7 +49,7 @@ export class PersonComponent extends RegisterBase implements OnInit {
       field: 'profession',
       checkboxSelection: false,
       editable: false,
-      width: 100,
+      width: 250,
       hide: false
      },
      {
@@ -135,5 +135,10 @@ export class PersonComponent extends RegisterBase implements OnInit {
   // tslint:disable-next-line: member-ordering
   static equalTo(): {[key: string]: boolean} {
     return undefined;
+  }
+
+  onSelectionChanged(value: any): void {
+    console.log('"Parte 2"');
+    console.log(value.api.getSelectedRows()[0].id);
   }
 }

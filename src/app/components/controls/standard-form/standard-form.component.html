@@ -6,7 +6,7 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="findItem">
-              <mc-grid-control [columnDefs]="columns" [viewName]="viewName"></mc-grid-control>
+              <mc-grid-control [columnDefs]="columns" [viewName]="viewName" (selectionChanged)="onSelectionChanged($event)"></mc-grid-control>
           </div>
           <div class="tab-pane" id="detailData">
                 <ng-content></ng-content>

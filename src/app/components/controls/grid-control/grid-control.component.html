@@ -1,6 +1,6 @@
 
 <ag-grid-angular
-    #gird
+    #agGrid
     id="agGrid"
     class="ag-theme-balham"
     [rowData]="rowData"
@@ -10,6 +10,7 @@
     rowSelection="single"
     pagination = true
     paginationAutoPageSize = true
+    (selectionChanged)="onSelectionChanged($event)"
     >
 
 </ag-grid-angular>
