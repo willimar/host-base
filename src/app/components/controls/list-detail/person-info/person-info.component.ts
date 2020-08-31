@@ -22,8 +22,10 @@ import { Order } from 'src/app/Services/graphQL/enums/order';
 export class PersonInfoComponent extends RegisterBase implements OnInit {
 
   @Input() personService: PersonService;
+
   cities: ISelect[] = [];
   states: ISelect[] = [];
+
 
   constructor(public formBuilder: FormBuilder, private _http: HttpClient) {
     super();
@@ -42,8 +44,6 @@ export class PersonInfoComponent extends RegisterBase implements OnInit {
       specialNeeds: this.formBuilder.control('', []),
       nickName: this.formBuilder.control('', [])
     }, {validator: PersonInfoComponent.equalTo});
-
-    this.personService.formGroups.push(this.formGroupRules);
   }
 
   savePerson(form: PersonInfo) {

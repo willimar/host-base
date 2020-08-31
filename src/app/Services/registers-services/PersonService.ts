@@ -1,3 +1,4 @@
+import { Guid } from './../guid';
 import { FormGroup } from '@angular/forms';
 import { Status } from './../../Models/Register/ModelBase';
 import { HandleCode } from './../enums/HandleCode';
@@ -19,7 +20,8 @@ export class PersonService extends BaseService {
 
   public errorMessages: any[] = [];
   public messages: any[] = [];
-  public formGroups: FormGroup[] = [];
+  // public formGroups: FormGroup[] = [];
+  public personInfoForm: FormGroup;
 
   constructor(private _http: HttpClient, public person: Person) {
       super();
@@ -106,7 +108,7 @@ export class PersonService extends BaseService {
       .map(response => response);
   }
 
-  private exceptionResolve(e) {
+  private exceptionResolve(e: any) {
     const message = {
       boxTitle: `Message type ${e.name}`,
       boxText: `Code: ${e.status} with message: ${e.message}`,
@@ -114,5 +116,31 @@ export class PersonService extends BaseService {
     };
 
     this.errorMessages.push(message);
+  }
+
+  public loadPerson(id: Guid): any {
+    const graphClient = new GraphClient(this._http);
+    const body = graphClient.appendBody('person');
+
+    body.resultFields.push('name');
+    body.resultFields.push('nickName');
+    body.resultFields.push('profession');
+    body.resultFields.push('birthday');
+    body.resultFields.push('id');
+    body.resultFields.push('birthCity {id, uf }');
+    body.resultFields.push('gender');
+    body.resultFields.push('maritalStatus');
+    body.resultFields.push('specialNeeds');
+
+    body.appendArgument('id').appendCheck(OperationType.EqualTo, Statement.And, id.toString());
+
+    graphClient.resolve(`${SettingsComponent.crudApiUrl}/graphql`);
+
+    graphClient.result.subscribe(content => {
+      const personResult = content.data.person[0];
+      this.personInfoForm.controls.name = personResult.name;
+    });
+
+    return graphClient.result;
   }
 }

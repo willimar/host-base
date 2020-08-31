@@ -13,11 +13,16 @@ export class StandardFormComponent implements OnInit {
   @Input() viewName: string;
 
   @Output() selectionChanged = new EventEmitter();
+  @Output() openDetail = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
 
+  }
+
+  detailOpenEvent(value: any){
+    this.openDetail.emit(value);
   }
 
   onSelectionChanged(value: any) {

@@ -3,7 +3,7 @@ import { ModelBase, Status } from '../Models/Register/ModelBase';
 
 export class BaseService {
 
-    protected getCollectionIndex(collection: ModelBase[], id: string): number {
+    protected getCollectionIndex(collection: ModelBase[], id: Guid): number {
         let idx = -1;
         let result = -1;
 

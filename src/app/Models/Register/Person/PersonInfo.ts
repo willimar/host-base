@@ -1,7 +1,8 @@
+import { Guid } from './../../../Services/guid';
 import { ModelBase } from './../ModelBase';
 
 export class PersonInfo extends ModelBase {
-  public id: string;
+  public id: Guid;
   public name: string;
   public nickName: string;
   public birthDay: Date;

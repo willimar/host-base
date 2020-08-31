@@ -1,3 +1,4 @@
+import { Guid } from './../../Services/guid';
 export enum Status {
     active = '0',
     blocked = '1',
@@ -5,7 +6,7 @@ export enum Status {
 }
 
 export class ModelBase {
-    public id: string;
+    public id: Guid;
     public registerDate: Date;
     public lastChageDate: Date;
     public status: Status;

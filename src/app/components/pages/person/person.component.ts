@@ -19,6 +19,8 @@ export class PersonComponent extends RegisterBase implements OnInit {
   @Input() errorMessage: any[] = [];
   @Input() personInfo: boolean;
 
+  private _id: Guid;
+
   columnDef: IColumnDef[] = [
     {
       headerName: 'Id',
@@ -45,6 +47,14 @@ export class PersonComponent extends RegisterBase implements OnInit {
       hide: false
      },
      {
+      headerName: 'Special needs',
+      field: 'specialNeeds',
+      checkboxSelection: true,
+      editable: false,
+      width: 120,
+      hide: false
+     },
+     {
       headerName: 'Profession',
       field: 'profession',
       checkboxSelection: false,
@@ -66,6 +76,14 @@ export class PersonComponent extends RegisterBase implements OnInit {
       checkboxSelection: false,
       editable: false,
       width: 200,
+      hide: false
+     },
+     {
+      headerName: 'Status',
+      field: 'status',
+      checkboxSelection: false,
+      editable: false,
+      width: 100,
       hide: false
      }
    ];
@@ -115,7 +133,7 @@ export class PersonComponent extends RegisterBase implements OnInit {
     return result;
   }
 
-  getId(): string {
+  getId(): Guid {
     if (this.personService.person.id === '' || this.personService.person.id === undefined) {
       this.personService.person.id = Guid.newGuid();
     }
@@ -125,9 +143,7 @@ export class PersonComponent extends RegisterBase implements OnInit {
   isValid(): boolean {
     let result = true;
 
-    this.personService.formGroups.forEach(item => {
-      result = result && item.valid;
-    });
+    result = result && this.personService.personInfoForm.valid;
 
     return result;
   }
@@ -137,8 +153,31 @@ export class PersonComponent extends RegisterBase implements OnInit {
     return undefined;
   }
 
+  openDetail(value: any) {
+    this.personService.loadPerson(this._id);
+      // .subscribe(content => {
+      //   const personResult = content.data.person[0];
+
+      //   // this.person = new Person();
+      //   // const person = this.personService.person;
+
+      //   // person.id = personResult.id;
+      //   // person.personInfo.id = personResult.id;
+      //   // person.personInfo.birthCity = personResult.birthCity.id;
+      //   // person.personInfo.birthState = personResult.birthCity.uf;
+      //   // person.personInfo.name = personResult.name;
+      //   // person.personInfo.nickName = personResult.nickName;
+      //   // person.personInfo.gender = personResult.gender;
+      //   // person.personInfo.maritalStatus = personResult.maritalStatus;
+      //   // person.personInfo.specialNeeds = personResult.specialNeeds;
+      //   // person.personInfo.profession = personResult.profession;
+
+      //   // this.personService.personInfoForm.controls.name = personResult.name;
+      // });
+  }
+
   onSelectionChanged(value: any): void {
-    console.log('"Parte 2"');
-    console.log(value.api.getSelectedRows()[0].id);
+    this._id = value.api.getSelectedRows()[0].id;
+    console.log(this._id);
   }
 }
