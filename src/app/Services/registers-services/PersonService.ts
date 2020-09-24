@@ -18,7 +18,6 @@ import { Statement } from '../graphQL/enums/statement';
 @Injectable()
 export class PersonService extends BaseService {
 
-  public errorMessages: any[] = [];
   public messages: any[] = [];
   // public formGroups: FormGroup[] = [];
   public personInfoForm: FormGroup;

@@ -16,7 +16,7 @@ import { FooterComponent } from './components/standard/footer/footer.component';
 import { SettingsComponent } from './components/standard/settings/settings.component';
 import { MenuComponent } from './components/standard/menu/menu.component';
 import { AboutComponent } from './components/standard/about/about.component';
-import { HomeComponent } from './components/standard/home/home.component';
+import { HomeComponent } from './layout/home/home.component';
 import { PersonTypeComponent } from './components/pages/person-type/person-type.component';
 import { AgGridModule } from 'ag-grid-angular';
 
@@ -36,6 +36,9 @@ import { AddressItemComponent } from './components/controls/list-detail/address-
 import { InputCheckComponent } from './components/controls/input-check/input-check.component';
 import { PersonInfoComponent } from './components/controls/list-detail/person-info/person-info.component';
 import { BoxErrorComponent } from './components/controls/box-error/box-error.component';
+import { LoginComponent } from './account/login/login.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { BoxErrorComponent } from './components/controls/box-error/box-error.com
     AddressItemComponent,
     InputCheckComponent,
     PersonInfoComponent,
-    BoxErrorComponent
+    BoxErrorComponent,
+    LoginComponent,
+    CreateAccountComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<section styles="border=1px">
+  <mc-box-error *ngFor="let item of getErrors()" [showCloseButton]=false [boxTitle]="item.boxTitle" [boxText]="item.boxText"></mc-box-error>
+    <form role="form" [formGroup]="formGroupRules">
+      <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">
+          <mc-input
+            [caption]="'Login'"
+            [name]="'userName'"
+            [required]="true"
+            [errorMessage]="'Login field is required.'">
+            <input type="text" class="form-control" placeholder="User name or e-mail..." formControlName="userName" autocomplete="off">
+          </mc-input>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-3">
+          <mc-input
+            [caption]="'Password'"
+            [name]="'userPassword'"
+            [required]="true"
+            [errorMessage]="'Login field is required.'">
+            <input type="password" class="form-control" placeholder="User password..." formControlName="userPassword" autocomplete="off">
+          </mc-input>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-3">
+          <button class="btn btn-primary" style="width: 100%;" (click)="savePerson(formGroupRules.value)">Login</button>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-1">
+                                              <button (click)="socialSignIn('google')" class="loginBtn loginBtn--google">
+
+                                        Login with Google
+
+                                    </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-primary" style="width: 100%;" (click)="savePerson(formGroupRules.value)">Using your Goole Account</button>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+
+    </form>
+</section>
